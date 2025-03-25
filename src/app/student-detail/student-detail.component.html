@@ -1,0 +1,12 @@
+<h2>Student Details :</h2>
+<div>
+  @if (student) {
+    <p>Name: {{ student.name }}</p>
+    <p>Grade: {{ student.grade }}</p>
+    <p>Name (Reversed): 
+      <span class="reversed-name">{{ student.name | reverseName }}</span>
+    </p>
+  } @else {
+    <p>Click on student to view details</p>
+  }
+</div>

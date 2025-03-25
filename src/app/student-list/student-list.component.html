@@ -1,0 +1,24 @@
+<h2>Student List :</h2>
+<ul>
+  @for (student of students; track student) {
+    <li (click)="selectStudent(student)">
+      {{ student.name }} (Grade: {{ student.grade }})
+      <button (click)="deleteStudent(student.id); $event.stopPropagation()"> Delete</button>
+    </li>
+  }
+</ul>
+
+<h2>After Filtering Students (Grade >= 40)</h2>
+<ul>
+  @for (student of students; track student) {
+    @if (student.grade >= 40) {
+      <li>
+        {{ student.name }} (Grade: {{ student.grade }})
+      </li>
+    }
+  }
+</ul>
+
+<app-student-detail [student]="selectedStudent"></app-student-detail>
+
+<app-student-form (addStudent)="addStudent($event)"></app-student-form>
